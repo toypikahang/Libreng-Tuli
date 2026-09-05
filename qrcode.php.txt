@@ -1,0 +1,39 @@
+<?php
+// qrcode.php
+include "phpqrcode/qrlib.php";
+
+if (isset($_GET['id'])) {
+    $participant_id = $_GET['id'];
+
+    // Absolute path to your Desktop folder
+    $saveDir = "C:/Users/Admin/Desktop/Libreng Tuli for qr codes/";
+
+    // QR code content
+    $codeContents = "Libreng Tuli Confirmation - Participant ID: $participant_id";
+
+    // File name
+    $fileName = "qrcode_$participant_id.png";
+    $filePath = $saveDir . $fileName;
+
+    // Generate QR code and save to Desktop folder
+    QRcode::png($codeContents, $filePath, QR_ECLEVEL_L, 5);
+
+    // Output styled HTML with CSS
+    echo "<!DOCTYPE html>";
+    echo "<html lang='en'>";
+    echo "<head>";
+    echo "<meta charset='UTF-8'>";
+    echo "<title>QR Code Confirmation</title>";
+    echo "<link rel='stylesheet' href='style.css'>";
+    echo "</head>";
+    echo "<body>";
+    echo "<div class='container'>";
+    echo "<h2>Your QR Code Confirmation</h2>";
+    echo "<img src='".$filePath."' alt='QR Code'>";
+    echo "</div>";
+    echo "</body>";
+    echo "</html>";
+} else {
+    echo "No participant ID provided.";
+}
+?>

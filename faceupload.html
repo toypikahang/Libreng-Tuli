@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Face Photo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Face Photo</h2>
+        <form action="faceupload.php" method="post" enctype="multipart/form-data">
+            <label>Select photo:</label>
+            <input type="file" name="face" accept="image/*" required>
+
+            <input type="submit" value="Upload Photo">
+        </form>
+
+        <nav>
+            <a href="signup.html">Sign Up</a>
+            <a href="biodata.html">Bio-data Form</a>
+            <a href="faceupload.html">Upload Face Photo</a>
+            <a href="qrcode.php?id=1">QR Code Confirmation</a>
+        </nav>
+    </div>
+</body>
+</html>
