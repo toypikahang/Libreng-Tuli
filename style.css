@@ -1,10 +1,11 @@
 /* General page layout */
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #f4f6f9, #e9eff5);
     margin: 0;
     padding: 0;
     color: #333;
+    transition: background 0.5s ease;
 }
 
 /* Centered container */
@@ -13,14 +14,24 @@ body {
     margin: 50px auto;
     background: #fff;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 /* Headings */
 h1, h2 {
     text-align: center;
     color: #0077cc;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+h1:hover, h2:hover {
+    color: #005fa3;
 }
 
 /* Navigation links */
@@ -36,10 +47,11 @@ nav a {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 nav a:hover {
     background: #005fa3;
+    transform: scale(1.05);
 }
 
 /* Forms */
@@ -50,6 +62,7 @@ form {
 label {
     margin: 10px 0 5px;
     font-weight: bold;
+    color: #444;
 }
 input[type="text"],
 input[type="email"],
@@ -58,6 +71,15 @@ input[type="file"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 5px rgba(0,119,204,0.3);
+    outline: none;
 }
 input[type="submit"] {
     margin-top: 20px;
@@ -67,10 +89,11 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 input[type="submit"]:hover {
     background: #218838;
+    transform: translateY(-2px);
 }
 
 /* QR code image */
@@ -78,4 +101,22 @@ img {
     display: block;
     margin: 20px auto;
     max-width: 250px;
+    border: 3px solid #0077cc;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+    nav a {
+        display: block;
+        margin: 10px auto;
+    }
 }
